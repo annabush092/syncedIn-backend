@@ -97,3 +97,12 @@ Wireframe:
 To run:
 rake db:create
 rake db:migrate
+
+
+Random stretch goals:
+
+Incorporate equipment- if someone plays the bass clarinet, do they have one? Especially important for percussion
+
+Allow users to create new Genres. Before creating the genre, try to match it with something that already exists, and ask them to choose one or create a new one anyways. (Try to search for each individual word inside other genre names to see if there are any matches?)
+
+Add a 'willing-to-learn' category for instruments and genres in a user profile

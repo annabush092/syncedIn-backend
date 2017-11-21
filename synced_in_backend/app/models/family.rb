@@ -1,5 +1,5 @@
 class Family < ApplicationRecord
 
-  has_many: :instruments
+  has_many :instruments
 
 end
