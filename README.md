@@ -5,6 +5,23 @@ frontend: https://github.com/annabush092/SyncedIn-frontend
 frameworks: Ruby on Rails api, postgres database
 
 
+*/
+TODO:
+
+end of day Wednesday: create db, models, associations
+end of day Friday: seed db with:
+  ~10 instruments + relevant families,
+  ~3 genres,
+  ~5 users,
+  DETAILED associations (use family for inspiration)
+end of day Saturday: basic API setup, enough front-end framework in place to test API
+end of day Sunday: User profile/show pages (no formatting yet), User list and cards
+end of day Monday: All user index/show in place, including filters for index
+
+stretch goal for end of day Monday: basic login (no auth) and sign-up
+
+/*
+
 Wireframe:
 
   db:
