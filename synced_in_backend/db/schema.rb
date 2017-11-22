@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121183420) do
+ActiveRecord::Schema.define(version: 20171122125301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,16 +28,16 @@ ActiveRecord::Schema.define(version: 20171121183420) do
     t.integer "family_id"
   end
 
-  create_table "user_contacts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "contact_id"
-  end
-
-  create_table "user_genres", force: :cascade do |t|
+  create_table "skills", force: :cascade do |t|
     t.integer "user_instrument_id"
     t.integer "genre_id"
     t.boolean "perform"
     t.boolean "teach"
+  end
+
+  create_table "user_contacts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "contact_id"
   end
 
   create_table "user_instruments", force: :cascade do |t|
@@ -46,7 +46,9 @@ ActiveRecord::Schema.define(version: 20171121183420) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
+    t.string "username"
+    t.string "last_name"
   end
 
 end

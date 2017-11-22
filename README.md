@@ -8,6 +8,7 @@ frameworks: Ruby on Rails api, postgres database
 MVP
 TODO:
 
+Fix .add_skill in Users!
 end of day Wednesday: create db, models, associations, start seeding
 end of day Friday:
   seed db with:
@@ -42,21 +43,21 @@ Wireframe:
     user_contacts:
       user_id: int
       contact_id: int (class=User)
-    user-instruments:
-      user_id: int
-      instrument_id: int
     instruments:
       name: string
       family_id: int
     families:
       name: string
-    user-genres:
+    genres:
+      name: string
+    user-instruments:
+      user_id: int
+      instrument_id: int
+    skills:
       user_instrument_id: int
       genre_id: int
       perform: boolean
       teach: boolean
-    genres:
-      name: string
 
   relationships:
     User:
@@ -64,8 +65,8 @@ Wireframe:
       has_many: :contacts, through: :user_contacts
       has_many: user-instruments
       has_many: instruments, through: user-instruments
-      has_many: user-genres, through: user-instruments
-      has_many: genres, through: user-genres
+      has_many: skills, through: user-instruments
+      has_many: genres, through: skills
     UserContacts:
       belongs_to: :user
       belongs_to: :contact, class: "User"
@@ -74,29 +75,39 @@ Wireframe:
         user.contacts. So if x adds y as a contact, you have 2 records:
         user_id: x.id, contact_id: y.id
         user_id: y.id, conatct_id: x.id
-    UserInstrument:
-      belongs_to: user
-      belongs_to: instrument
-      has_many: user-genres
-      has_many: genres, through: user-genres
     Instrument:
       has_many: user-instruments
       has_many: users, through: user-instruments
       belongs_to: family
     Family:
       has_many: instruments
-    UserGenre:
+    Genre:
+      has_many: skills
+      has_many: user-instruments, through: skills
+      has_many: users, through: user-instruments
+    UserInstrument:
+      belongs_to: user
+      belongs_to: instrument
+      has_many: skills
+      has_many: genres, through: skills
+    Skill:
       belongs_to: user-instrument
       belongs_to: genre
-    Genre:
-      has_many: user-genres
-      has_many: user-instruments, through: user-genres
-      has_many: users, through: user-instruments
+
+  Validations:
+      User: username is required and unique
+      Instrument: name is required and unique
+      Family: name is required and unique
+      Genre: name is required and unique
+      UserContact: has no duplicate entries
+      UserInstrument: has no duplicate entries
+      Skill: has no duplicate entry of user_instrument_id + genre_id
 
 
 To run:
 rake db:create
 rake db:migrate
+rake db:seed
 
 
 Random stretch goals:

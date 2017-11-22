@@ -1,8 +1,8 @@
 # # Create users:
-# me = User.create(name: "Anna")
-# User.create(name: "Natalie")
-# User.create(name: "David")
-# User.create(name: "Christina")
+# me = User.create(username: "annabush092@gmail.com", first_name: "Anna")
+# natalie = User.create(username: "natalie@natalie.com", first_name: "Natalie")
+# david = User.create(username: "david@david.com", first_name: "David")
+# christina = User.create(username: "christina@christina.com", first_name: "Christina")
 #
 # # Create families:
 # woodwind = Family.create(name: "Woodwind")
@@ -78,4 +78,14 @@
 # Instrument.create(name: "Electric Bass", family_id: plucked.id)
 #
 # # Add associations
+me = User.find_by(username: "annabush092@gmail.com")
+# natalie = User.find_by(username: "natalie@natalie.com")
+# david = User.find_by(username: "david@david.com")
+# christina = User.find_by(username: "christina@christina.com")
+bbclari = Instrument.find_by(name: "Bb Clarinet")
+classic = Genre.find_by(name: "Western Classical")
+
+#
 # me.update(instruments: [piano, ebclari, bbclari, aclari])
+# me.add_contacts([david, natalie, christina])
+me.add_skill({instrument: bbclari, genre: classic, teach: true, perform: true})
