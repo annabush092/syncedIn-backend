@@ -78,14 +78,21 @@
 # Instrument.create(name: "Electric Bass", family_id: plucked.id)
 #
 # # Add associations
-me = User.find_by(username: "annabush092@gmail.com")
-# natalie = User.find_by(username: "natalie@natalie.com")
-# david = User.find_by(username: "david@david.com")
-# christina = User.find_by(username: "christina@christina.com")
-bbclari = Instrument.find_by(name: "Bb Clarinet")
-classic = Genre.find_by(name: "Western Classical")
+# me = User.find_by(username: "annabush092@gmail.com")
+# # natalie = User.find_by(username: "natalie@natalie.com")
+# # david = User.find_by(username: "david@david.com")
+# # christina = User.find_by(username: "christina@christina.com")
+# bbclari = Instrument.find_by(name: "Bb Clarinet")
+# aclari = Instrument.find_by(name: "A Clarinet")
+# classic = Genre.find_by(name: "Western Classical")
+# symph = Genre.find_by(name: "Symphonic")
+# piano = Instrument.find_by(name: "Piano")
 
 #
 # me.update(instruments: [piano, ebclari, bbclari, aclari])
 # me.add_contacts([david, natalie, christina])
-me.add_skill({instrument: bbclari, genre: classic, teach: true, perform: true})
+# me.add_skill(bbclari, classic, true, true)
+# me.add_skill(bbclari, symph, true, true)
+# me.add_skill(aclari, symph, true, true)
+# me.add_skill(aclari, classic, true, true)
+# me.add_skill(piano, classic, true, false)

@@ -11,6 +11,10 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   def add_contact(user)
     self.contacts << user
     user.contacts << self
@@ -24,10 +28,9 @@ class User < ApplicationRecord
     end
   end
 
-  # props = { instrument: instance, genre: instance, teach: bool, perform: bool}
-  def add_skill(props)
-    assoc = UserInstrument.find_or_create_by(instrument_id: props[instrument].id, user_id: self.id)
-    Skill.create(user_instrument_id: assoc.id, genre_id: props[genre].id, teach: props[teach], perform: props[perform] )
+  def add_skill(instrument, genre, teach, perform)
+    assoc = UserInstrument.find_or_create_by(instrument_id: instrument.id, user_id: self.id)
+    Skill.create(user_instrument_id: assoc.id, genre_id: genre.id, teach: teach, perform: perform )
   end
 
   def show_skills

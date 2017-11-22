@@ -5,12 +5,16 @@ frontend: https://github.com/annabush092/SyncedIn-frontend
 frameworks: Ruby on Rails api, postgres database
 
 */
-MVP
+???:
+
+Why can't I give a hash as an argument to my custom method? (user.add_skill({hash here???}))
+Error is that Rails is looking for methods with the names of each key, so it errors when it doesn't find them. So do I have to use regular old arguments and just remember what they are? (annoying...)
+
+
 TODO:
 
-Fix .add_skill in Users!
-end of day Wednesday: create db, models, associations, start seeding
-end of day Friday:
+done  -  end of day Wednesday: create db, models, associations, start seeding
+done - end of day Friday:
   seed db with:
     ~10 instruments + relevant families,
     ~3 genres,
