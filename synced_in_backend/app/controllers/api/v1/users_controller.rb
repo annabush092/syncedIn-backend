@@ -9,15 +9,15 @@ class Api::V1::UsersController < ApplicationController
     find_user
     render json: @user
   end
-
-  def create
-  end
-
-  def update
-  end
-
-  def destroy
-  end
+  #
+  # def create
+  # end
+  #
+  # def update
+  # end
+  #
+  # def destroy
+  # end
 
   private
   def find_user
