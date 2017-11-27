@@ -101,3 +101,5 @@ Allow users to link to each other in posts (think of twitter- you can follow peo
 Allow users to directly message each other, but also give them the option to block direct messages
 
 If I make updates to a user, how do I force the page to reload and show those changes without totally reloading the site?
+
+Catch error in frontend if server is down and sends any response besides 200...

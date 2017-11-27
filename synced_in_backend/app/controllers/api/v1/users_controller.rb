@@ -16,12 +16,12 @@ class Api::V1::UsersController < ApplicationController
   def update
     find_user
     if params[:follow_id]
-      @user.following << User.find_by(id: params[:follow_id])
+      @assoc = UserFollow.new(following_id: @user.id, followed_id: params[:follow_id])
     end
-    if @user.save
+    if @assoc.save
       render json: @user
     else
-      render json: {errors: @user.errors.full_messages}
+      render json: {errors: @assoc.errors.full_messages}
     end
   end
 
