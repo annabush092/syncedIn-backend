@@ -13,9 +13,18 @@ class Api::V1::UsersController < ApplicationController
   # def create
   # end
   #
-  # def update
-  # end
-  #
+  def update
+    find_user
+    if params[:follow_id]
+      @user.following << User.find_by(id: params[:follow_id])
+    end
+    if @user.save
+      render json: @user
+    else
+      render json: {errors: ["Error updating user... please try again."]}
+    end
+  end
+
   # def destroy
   # end
 

@@ -1,7 +1,9 @@
 class User < ApplicationRecord
 
-  has_many :user_contacts
-  has_many :contacts, through: :user_contacts
+  has_many :following_users, class_name: "UserFollow", foreign_key: "following_id"
+  has_many :followed_users, class_name: "UserFollow", foreign_key: "followed_id"
+  has_many :followed, through: :following_users
+  has_many :following, through: :followed_users
 
   has_many :user_instruments
   has_many :instruments, through: :user_instruments
@@ -13,19 +15,6 @@ class User < ApplicationRecord
 
   def full_name
     "#{self.first_name} #{self.last_name}"
-  end
-
-  def add_contact(user)
-    self.contacts << user
-    user.contacts << self
-    self.save
-    user.save
-  end
-
-  def add_contacts(user_arr)
-    user_arr.each do |user|
-      self.add_contact(user)
-    end
   end
 
   def add_skill(instrument, genre, teach, perform)

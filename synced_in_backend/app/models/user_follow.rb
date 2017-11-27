@@ -1,0 +1,9 @@
+class UserFollow < ApplicationRecord
+
+  belongs_to :followed, class_name: "User"
+  belongs_to :following, class_name: "User"
+
+  validates :followed_id, uniqueness: {scope: :following_id}
+  validates :following_id, uniqueness: {scope: :followed_id}
+
+end

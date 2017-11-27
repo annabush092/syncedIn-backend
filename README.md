@@ -87,3 +87,17 @@ Incorporate equipment- if someone plays the bass clarinet, do they have one? Esp
 Allow users to create new Genres. Before creating the genre, try to match it with something that already exists, and ask them to choose one or create a new one anyways. (Try to search for each individual word inside other genre names to see if there are any matches?)
 
 Add a 'willing-to-learn' category for instruments and genres in a user profile
+
+Location of musicians!
+
+Can users rank their instruments so the userCard shows the most important ones? (userCard shows perform=true instruments)
+
+Allow musicians to upload a resume, what they're currently working on, past schools, bio, etc
+
+Add pictures for each instrument and genre to display on profile instrument cards
+
+Allow users to link to each other in posts (think of twitter- you can follow people or mention their name in a tweet to get their attention)
+
+Allow users to directly message each other, but also give them the option to block direct messages
+
+If I make updates to a user, how do I force the page to reload and show those changes without totally reloading the site?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122125301) do
+ActiveRecord::Schema.define(version: 20171127185935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 20171122125301) do
     t.boolean "teach"
   end
 
-  create_table "user_contacts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "contact_id"
+  create_table "user_follows", force: :cascade do |t|
+    t.integer "following_id"
+    t.integer "followed_id"
   end
 
   create_table "user_instruments", force: :cascade do |t|
