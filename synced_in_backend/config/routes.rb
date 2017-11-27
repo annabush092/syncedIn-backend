@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       resources :instruments, only: [:index]
       resources :genres, only: [:index]
       resources :families, only: [:index]
+      resources :user_follows, only: [:create]
+      post '/delete_user_follows', to: 'user_follows#delete_follow'
       post '/login', to: 'authentications#login'
     end
   end
