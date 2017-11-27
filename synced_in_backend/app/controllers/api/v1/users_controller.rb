@@ -21,7 +21,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       render json: @user
     else
-      render json: {errors: ["Error updating user... please try again."]}
+      render json: {errors: @user.errors.full_messages}
     end
   end
 
