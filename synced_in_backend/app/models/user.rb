@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :skills, through: :user_instruments
   has_many :genres, through: :skills
 
+  has_many :posts
+
   validates :username, presence: true, uniqueness: true
 
   def full_name
@@ -32,8 +34,7 @@ class User < ApplicationRecord
         skills: my_genres
       }
     end
-  end
-  # Returns nested structure:
+  end # Returns nested structure:
   # [
   #   {
   #     instrument: name,
