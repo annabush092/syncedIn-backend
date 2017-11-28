@@ -6,78 +6,25 @@ frameworks: Ruby on Rails api, postgres database
 
 
 Wireframe:
+  See googledoc
 
-  db:
-    users:
-      name: string
-    user_contacts:
-      user_id: int
-      contact_id: int (class=User)
-    instruments:
-      name: string
-      family_id: int
-    families:
-      name: string
-    genres:
-      name: string
-    user-instruments:
-      user_id: int
-      instrument_id: int
-    skills:
-      user_instrument_id: int
-      genre_id: int
-      perform: boolean
-      teach: boolean
-
-  relationships:
-    User:
-      has_many: :user_contacts
-      has_many: :contacts, through: :user_contacts
-      has_many: user-instruments
-      has_many: instruments, through: user-instruments
-      has_many: skills, through: user-instruments
-      has_many: genres, through: skills
-    UserContacts:
-      belongs_to: :user
-      belongs_to: :contact, class: "User"
-      NOTE: For a User to see all of its contacts, create 2 separate
-        entries in this table, so both users can see the association with
-        user.contacts. So if x adds y as a contact, you have 2 records:
-        user_id: x.id, contact_id: y.id
-        user_id: y.id, conatct_id: x.id
-    Instrument:
-      has_many: user-instruments
-      has_many: users, through: user-instruments
-      belongs_to: family
-    Family:
-      has_many: instruments
-    Genre:
-      has_many: skills
-      has_many: user-instruments, through: skills
-      has_many: users, through: user-instruments
-    UserInstrument:
-      belongs_to: user
-      belongs_to: instrument
-      has_many: skills
-      has_many: genres, through: skills
-    Skill:
-      belongs_to: user-instrument
-      belongs_to: genre
-
-  Validations:
-      User: username is required and unique
-      Instrument: name is required and unique
-      Family: name is required and unique
-      Genre: name is required and unique
-      UserContact: has no duplicate entries
-      UserInstrument: has no duplicate entries
-      Skill: has no duplicate entry of user_instrument_id + genre_id
+Validations:
+    User: username is required and unique
+    Instrument: name is required and unique
+    Family: name is required and unique
+    Genre: name is required and unique
+    Post: content is required
+    Tag: tag_text is required and unique
+    UserFollow: has no duplicate entries
+    UserInstrument: has no duplicate entries
+    PostTag: has no duplicate entries
+    Skill: has no duplicate entry of user_instrument_id + genre_id
 
 
 To run:
 rake db:create
 rake db:migrate
-rake db:seed
+(rake db:seed)
 
 
 Random stretch goals:
