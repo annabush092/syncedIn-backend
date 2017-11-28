@@ -52,4 +52,10 @@ class User < ApplicationRecord
   #   },
   # ]
 
+  def users_i_am_following
+    self.following.map do |followed|
+      {id: followed.id, full_name: followed.full_name}
+    end
+  end
+
 end
