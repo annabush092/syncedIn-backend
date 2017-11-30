@@ -13,7 +13,8 @@ class User < ApplicationRecord
   has_many :skills, through: :user_instruments
   has_many :genres, through: :skills
 
-  has_many :posts
+  has_many :posts,
+  # dependent: :destroy
 
   validates :username, presence: true, uniqueness: true
 
