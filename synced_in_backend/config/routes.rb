@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :user_follows, only: [:create]
       post '/delete_user_follows', to: 'user_follows#delete_follow'
       post '/login', to: 'authentications#login'
+      get '/finduser', to: 'authentications#finduser'
     end
   end
 
