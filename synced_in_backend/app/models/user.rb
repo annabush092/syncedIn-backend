@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_secure_password
+
   has_many :following_users, class_name: "UserFollow", foreign_key: "following_id"
   has_many :followed_users, class_name: "UserFollow", foreign_key: "followed_id"
   has_many :followed, through: :following_users
