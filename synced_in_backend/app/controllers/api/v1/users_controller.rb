@@ -1,5 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
+  include JwtHelper
+
   def index
     @users = User.all
     render json: @users
@@ -9,10 +11,17 @@ class Api::V1::UsersController < ApplicationController
     find_user
     render json: @user
   end
-  #
-  # def create
-  # end
-  #
+
+  def create
+    @user = User.new(username: params[:username], password: params[:password], first_name: params[:first_name], last_name: params[:last_name])
+    if @user.save
+      token = new_token
+      render json: {jwt: token}
+    else
+      render json: {errors: @user.errors.full_messages}
+    end
+  end
+
   # def update
   #   find_user
   #   if params[:follow_id]

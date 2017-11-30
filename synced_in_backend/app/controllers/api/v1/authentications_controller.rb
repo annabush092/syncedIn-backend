@@ -1,11 +1,11 @@
 class Api::V1::AuthenticationsController < ApplicationController
 
-  @@secret = "whatASecretThisIs"
+  include JwtHelper
 
   def login
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
-      token = JWT.encode( {id: @user.id}, @@secret )
+      token = new_token
       render json: { jwt: token }
     else
       render json: {errors: ["No matches found... please try again"]}
