@@ -9,7 +9,7 @@ Wireframe:
   See googledoc
 
 Validations:
-    User: username is required and unique
+    User: username is required and unique, password is required
     Instrument: name is required and unique
     Family: name is required and unique
     Genre: name is required and unique

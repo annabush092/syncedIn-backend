@@ -1,9 +1,9 @@
 # # Create users:
-# me = User.create(username: "annabush092@gmail.com", first_name: "Anna")
-# natalie = User.create(username: "natalie@natalie.com", first_name: "Natalie")
-# david = User.create(username: "david@david.com", first_name: "David")
-# christina = User.create(username: "christina@christina.com", first_name: "Christina")
-#
+# me = User.create(username: "annabush092@gmail.com", first_name: "Anna", last_name: "Bush", password: "a")
+# natalie = User.create(username: "natalie@natalie.com", first_name: "Natalie", last_name: "Nat", password: "n")
+# david = User.create(username: "david@david.com", first_name: "David", last_name: "Dancing", password: "n")
+# christina = User.create(username: "christina@christina.com", first_name: "Christina", last_name: "Komodo", password: "c")
+
 # # Create families:
 # woodwind = Family.create(name: "Woodwind")
 # string = Family.create(name: "String")
@@ -77,39 +77,41 @@
 # Instrument.create(name: "Bass", family_id: voice.id)
 # Instrument.create(name: "Electric Bass", family_id: plucked.id)
 #
-# # Add associations
-me = User.find_by(username: "annabush092@gmail.com")
-# # natalie = User.find_by(username: "natalie@natalie.com")
-# # david = User.find_by(username: "david@david.com")
-# # christina = User.find_by(username: "christina@christina.com")
+# # # Add associations
+# me = User.find_by(username: "annabush092@gmail.com")
+# # # natalie = User.find_by(username: "natalie@natalie.com")
+# david = User.find_by(username: "david@david.com")
+# # # christina = User.find_by(username: "christina@christina.com")
 # bbclari = Instrument.find_by(name: "Bb Clarinet")
 # aclari = Instrument.find_by(name: "A Clarinet")
 # classic = Genre.find_by(name: "Western Classical")
 # symph = Genre.find_by(name: "Symphonic")
 # piano = Instrument.find_by(name: "Piano")
-
+# trombone = Instrument.find_by(name: "Trombone")
 #
-# me.update(instruments: [piano, ebclari, bbclari, aclari])
+# me.update(instruments: [piano, bbclari, aclari])
 # me.add_skill(bbclari, classic, true, true)
 # me.add_skill(bbclari, symph, true, true)
 # me.add_skill(aclari, symph, true, true)
 # me.add_skill(aclari, classic, true, true)
 # me.add_skill(piano, classic, true, false)
 #
-# concert = Post.create(content: "Great concert last night!", user_id: 1)
-# gig = Post.create(content: "Gig tonight in the west village- come check it out!", user_id: 2)
-# trombone2 = Post.create(content: "Instrument stolen! Please look for my million dollar bass trombone!!", user_id: 3)
-# trombone = Post.create(content: "Anyone know a good trombone?", user_id: 4)
-# concert2 = Post.create(content: "Subbing in for the New York Phil tonight on Mahler's 5th!!", user_id: 5)
-# jazz = Post.create(content: "La dee da dee da da boop beep blop I love jazz", user_id: 1)
-# new_music = Post.create(content: "Boop boop beep bleep bloop what intellectual music", user_id: 4)
+# david.update(instruments: [trombone])
+# #
+# concert = Post.create(content: "Great concert last night!", user_id: 6)
+# gig = Post.create(content: "Gig tonight in the west village- come check it out!", user_id: 7)
+# trombone2 = Post.create(content: "Instrument stolen! Please look for my million dollar bass trombone!!", user_id: 8)
+# trombone = Post.create(content: "Anyone know a good trombone?", user_id: 9)
+# concert2 = Post.create(content: "Subbing in for the New York Phil tonight on Mahler's 5th!!", user_id: 6)
+# jazz = Post.create(content: "La dee da dee da da boop beep blop I love jazz", user_id: 7)
+# new_music = Post.create(content: "Boop boop beep bleep bloop what intellectual music", user_id: 8)
 #
-# tag1 = Tag.create(tag_text: "violin")
-# tag2 = Tag.create(tag_text: "trombone")
-# tag3 = Tag.create(tag_text: "new music")
-# tag4 = Tag.create(tag_text: "jazz")
-# tag5 = Tag.create(tag_text: "symphony")
-# tag6 = Tag.create(tag_text: "gig")
+# tag1 = Tag.find_by(tag_text: "violin")
+# tag2 = Tag.find_by(tag_text: "trombone")
+# tag3 = Tag.find_by(tag_text: "new music")
+# tag4 = Tag.find_by(tag_text: "jazz")
+# tag5 = Tag.find_by(tag_text: "symphony")
+# tag6 = Tag.find_by(tag_text: "gig")
 #
 # PostTag.create(post_id: concert.id, tag_id: tag6.id)
 # PostTag.create(post_id: gig.id, tag_id: tag6.id)
