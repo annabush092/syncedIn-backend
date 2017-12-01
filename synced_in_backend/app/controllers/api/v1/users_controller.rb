@@ -7,10 +7,10 @@ class Api::V1::UsersController < ApplicationController
     render json: @users
   end
 
-  def show
-    find_user
-    render json: @user
-  end
+  # def show
+  #   find_user
+  #   render json: @user
+  # end
 
   def create
     @user = User.new(username: params[:username], password: params[:password], first_name: params[:first_name], last_name: params[:last_name])
@@ -24,8 +24,10 @@ class Api::V1::UsersController < ApplicationController
 
   def update
     find_user
-    
-    if @user.save
+    auth_user = User.find_by(id: decode_user_id)
+    if @user != auth_user
+      render json: {errors: ["Invalid token. You must be logged in to edit your profile."]}
+    elsif @user.update(username: params[:username], first_name: params[:first_name], last_name: params[:last_name])
       render json: @user
     else
       render json: {errors: @user.errors.full_messages}

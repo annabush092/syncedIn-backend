@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :posts, only: [:index]
       resources :tags, only: [:index]
 
-      resources :users, only: [:index, :show, :create, :update]
+      resources :users, only: [:index, :create, :update]
       resources :user_follows, only: [:create]
       post '/delete_user_follows', to: 'user_follows#delete_follow'
 
