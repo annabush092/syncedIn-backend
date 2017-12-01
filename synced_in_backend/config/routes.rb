@@ -11,8 +11,9 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :show, :create, :update]
       resources :user_follows, only: [:create]
       post '/delete_user_follows', to: 'user_follows#delete_follow'
+
+      resources :authentications, only: [:index]
       post '/login', to: 'authentications#login'
-      get '/finduser', to: 'authentications#finduser'
     end
   end
 

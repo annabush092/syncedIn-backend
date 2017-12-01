@@ -12,10 +12,8 @@ class Api::V1::AuthenticationsController < ApplicationController
     end
   end
 
-  def finduser
-    @token = request.headers["Authorization"].split(" ")[1]
-    decoded = decode_token
-    user_id = decoded[0]["id"]
+  def index
+    user_id = decode_user_id
     @user = User.find_by(id: user_id)
     if @user
       render json: @user
@@ -23,5 +21,6 @@ class Api::V1::AuthenticationsController < ApplicationController
       render json: {errors: ["Invalid token... try to login again"]}
     end
   end
+
 
 end
