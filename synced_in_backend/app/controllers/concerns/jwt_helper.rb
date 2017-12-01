@@ -6,4 +6,8 @@ module JwtHelper
       JWT.encode( {id: @user.id}, @@secret )
     end
 
+    def decode_token
+      JWT.decode(@token, @@secret)
+    end
+
 end

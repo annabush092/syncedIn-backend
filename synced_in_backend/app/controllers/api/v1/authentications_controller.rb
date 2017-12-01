@@ -13,8 +13,8 @@ class Api::V1::AuthenticationsController < ApplicationController
   end
 
   def finduser
-    token = request.headers["Authorization"].split(" ")[1]
-    decoded = JWT.decode(token, @@secret)
+    @token = request.headers["Authorization"].split(" ")[1]
+    decoded = decode_token
     user_id = decoded[0]["id"]
     @user = User.find_by(id: user_id)
     if @user
@@ -23,14 +23,5 @@ class Api::V1::AuthenticationsController < ApplicationController
       render json: {errors: ["Invalid token... try to login again"]}
     end
   end
-
-  # def login
-  #   @user = User.find_by(username: params[:username])
-  #   if @user
-  #     render json: @user
-  #   else
-  #     render json: {errors: ["No matches found... please try again"]}
-  #   end
-  # end
 
 end
