@@ -27,7 +27,7 @@ class Api::V1::UsersController < ApplicationController
     auth_user = User.find_by(id: decode_user_id)
     if @user != auth_user
       render json: {errors: ["Invalid token. You must be logged in to edit your profile."]}
-    elsif @user.update(username: params[:username], first_name: params[:first_name], last_name: params[:last_name])
+    elsif @user.update(username: params[:username], first_name: params[:first_name], last_name: params[:last_name], instrument_ids: params[:instrument_ids])
       render json: @user
     else
       render json: {errors: @user.errors.full_messages}
