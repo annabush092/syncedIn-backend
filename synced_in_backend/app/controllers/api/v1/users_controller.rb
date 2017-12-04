@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
   # end
 
   def create
-    @user = User.new(username: params[:username], password: params[:password], first_name: params[:first_name], last_name: params[:last_name])
+    @user = User.new(username: params[:username], password: params[:password], first_name: params[:first_name], last_name: params[:last_name], instrument_ids: params[:instrument_ids])
     if @user.save
       token = new_token
       render json: {jwt: token}
