@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :instruments, only: [:index]
       resources :genres, only: [:index]
       resources :families, only: [:index]
-      resources :posts, only: [:index]
+      resources :posts, only: [:index, :create]
       resources :tags, only: [:index]
 
       resources :users, only: [:index, :create, :update]
