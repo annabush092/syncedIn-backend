@@ -7,10 +7,11 @@ class Post < ApplicationRecord
   validates :content, presence: true
 
   def time_published
-    if(self.created_at)
-      "#{self.created_at.strftime("%B")} #{self.created_at.day}, #{self.created_at.year}"
+    my_time = self.created_at
+    if(my_time)
+      "#{my_time.year}/#{my_time.strftime("%B")}/#{my_time.day}/#{my_time.hour - 5}/#{my_time.min}/#{my_time.sec}"
     else
-      "No date provided"
+      "2017/December/1/12/00/00"
     end
   end
 
