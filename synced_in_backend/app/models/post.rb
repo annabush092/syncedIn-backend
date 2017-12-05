@@ -9,9 +9,9 @@ class Post < ApplicationRecord
   def time_published
     my_time = self.created_at
     if(my_time)
-      "#{my_time.year}/#{my_time.strftime("%B")}/#{my_time.day}/#{my_time.hour - 5}/#{my_time.min}/#{my_time.sec}"
+      my_time.to_f * 1000
     else
-      "2017/December/1/12/00/00"
+      (DateTime.new(2017, 12, 1, 12, 00, 00)).to_f * 1000
     end
   end
 
