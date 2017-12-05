@@ -13,12 +13,21 @@ class Api::V1::UsersController < ApplicationController
   # end
 
   def create
-    @user = User.new(username: params[:username], password: params[:password], first_name: params[:first_name], last_name: params[:last_name], instrument_ids: params[:instrument_ids])
+    @user = User.new(username: params[:username], password: params[:password], first_name: params[:first_name], last_name: params[:last_name])
+    if params[:instrument_ids]
+      @new_instruments = params[:instrument_ids].map do |t|
+        @user.association(:instruments).add_to_target(Instrument.find_by(id: t))
+      end
+    end
+    if params[:new_instrument]
+      @instrument = Instrument.find_or_create_by(name: params[:new_instrument], family_id: params[:new_instrument_fam])
+      @user.association(:instruments).add_to_target(@instrument)
+    end
     if @user.save
       token = new_token
       render json: {jwt: token}
     else
-      render json: {errors: @user.errors.full_messages}
+      render json: {errors: @user.errors.full_messages.concat(@instrument.errors.full_messages)}
     end
   end
 
