@@ -6,4 +6,12 @@ class Post < ApplicationRecord
 
   validates :content, presence: true
 
+  def time_published
+    if(self.created_at)
+      "#{self.created_at.strftime("%B")} #{self.created_at.day}, #{self.created_at.year}"
+    else
+      "No date provided"
+    end
+  end
+
 end
