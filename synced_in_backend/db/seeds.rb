@@ -123,3 +123,7 @@
 # PostTag.create(post_id: concert.id, tag_id: tag1.id)
 # PostTag.create(post_id: concert2.id, tag_id: tag1.id)
 # PostTag.create(post_id: concert2.id, tag_id: tag5.id)
+
+Post.all.each do |p|
+  p.update(created_at: Time.now)
+end
