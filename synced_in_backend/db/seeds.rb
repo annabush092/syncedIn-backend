@@ -124,6 +124,12 @@
 # PostTag.create(post_id: concert2.id, tag_id: tag1.id)
 # PostTag.create(post_id: concert2.id, tag_id: tag5.id)
 
-Post.all.each do |p|
-  p.update(created_at: Time.now)
+# Post.all.each do |p|
+#   p.update(created_at: Time.now)
+# end
+#
+# User.find_by(first_name: "Anna").update(picture_url: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAwaAAAAJDMyYjhjN2IxLWUwYzktNDEwMy04MmZmLWFkNDYzODFkN2NkMw.jpg")
+
+User.all.each do |u|
+  u.update(picture_url: "http://www.limestone.edu/sites/default/files/user.png")
 end
