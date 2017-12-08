@@ -127,9 +127,25 @@
 # Post.all.each do |p|
 #   p.update(created_at: Time.now)
 # end
+
+# User.all.each do |u|
+#   u.update(picture_url: "http://www.limestone.edu/sites/default/files/user.png")
+# end
 #
 # User.find_by(first_name: "Anna").update(picture_url: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAwaAAAAJDMyYjhjN2IxLWUwYzktNDEwMy04MmZmLWFkNDYzODFkN2NkMw.jpg")
+# #
+# User.find_by(first_name: "Robert").update(picture_url: "https://rlv.zcache.com/portrait_of_robert_schumann_square_sticker-r68c7e1a219924a5db99cb2b8ab91d326_v9wf3_8byvr_324.jpg")
+#
+# User.find_by(first_name: "Kenny").update(picture_url: "https://www.besteveralbums.com/albumart/album_large_12868_4e47f99ae7f76.jpg")
+#
+# User.find_by(first_name: "Blues").update(picture_url: "http://2.bp.blogspot.com/-5XkVgGWqKNc/T4eO2CMYKlI/AAAAAAAABa4/KLKm0TzK3js/s1600/btrav.jpg")
+#
+# User.find_by(first_name: "Bob").update(picture_url: "https://i.pinimg.com/736x/99/56/4a/99564a10ac35ce524ac95910c4c69e14--lp-covers-music-covers.jpg")
+#
+# User.find_by(first_name: "igor").update(picture_url: "https://cps-static.rovicorp.com/3/JPG_500/MI0000/986/MI0000986143.jpg?partner=allrovi.com")
+#
+# User.find_by(first_name: "Johannes").update(picture_url: "http://images.genius.com/4e152e28282d71ef3e064a39a4a94875.625x625x1.jpg")
+#
+# User.find_by(first_name: "Shosti").update(picture_url: "http://www.bach-cantatas.com/Pic-Lib-BIG/Shostakovich-Dmitri-103.jpg")
 
-User.all.each do |u|
-  u.update(picture_url: "http://www.limestone.edu/sites/default/files/user.png")
-end
+User.find_by(first_name: "Ludwig von").update(picture_url: "https://www.biography.com/.image/t_share/MTI2NTgyMzIxOTcyMjU5NDU5/beethoven-600x600jpg.jpg")
